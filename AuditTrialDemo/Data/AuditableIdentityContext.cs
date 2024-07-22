@@ -1,12 +1,8 @@
 ﻿using AuditTrialDemo.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.Identity.Web;
 using System.Security.Claims;
-using System.Web.Providers.Entities;
 
 namespace AuditTrialDemo.Data
 {
@@ -16,10 +12,6 @@ namespace AuditTrialDemo.Data
         {
         }
 
-        public AuditableIdentityContext(DbContextOptions options, 
-            IHttpContextAccessor httpContextAccessor) : base(options)
-        {
-        }
         public DbSet<Audit> AuditLogs { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
